@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dummy test meeting | Lecture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Role Toggle (prototype-only) -->
+  <div class="role-toggle" id="roleToggle">
+    <button class="role-btn active" data-role="student">Student</button>
+    <button class="role-btn" data-role="instructor">Instructor</button>
+  </div>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="#4f7cff"/>
+          <path d="M8 10h12M8 14h8M8 18h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="meeting-title">Dummy test meeting | Lecture</span>
+    </div>
+    <div class="top-bar-right">
+      <button class="icon-btn" title="Like">👍</button>
+      <button class="icon-btn" title="Leaderboard">🏆</button>
+      <button class="icon-btn" title="Settings">⚙️</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="app-body">
+
+    <!-- Video + Controls -->
+    <div class="main-area">
+      <div class="video-area">
+        <span class="video-label">GNJMOVO</span>
+        <span class="waiting-text">Waiting for host to join</span>
+      </div>
+      <div class="bottom-controls">
+        <button class="ctrl-btn muted" title="Mic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a4 4 0 0 1 4 4v6a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm-1 17.93V21H9v2h6v-2h-2v-2.07A8 8 0 0 0 20 11h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 7 7.93z"/></svg>
+        </button>
+        <button class="ctrl-btn" title="Camera">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        </button>
+        <button class="ctrl-btn" title="Fullscreen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+        <button class="ctrl-btn raise-hand" title="Raise Hand">
+          ✋ Raise Hand
+        </button>
+        <button class="ctrl-btn" title="Share">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16c-.8 0-1.5.3-2 .8l-7.1-4.1c.1-.2.1-.5.1-.7s0-.5-.1-.7L16 7.2c.5.5 1.2.8 2 .8 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .2 0 .5.1.7L8 9.8C7.5 9.3 6.8 9 6 9c-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2-.8l7.1 4.1c-.1.2-.1.4-.1.7 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-3-2.8-3z"/></svg>
+        </button>
+        <button class="ctrl-btn hangup" title="End Call">✕</button>
+      </div>
+    </div>
+
+    <!-- Right Rail + Panel -->
+    <div class="right-side">
+
+      <!-- Side Panel (Chat or Questions) -->
+      <div class="side-panel" id="sidePanel">
+        <!-- Chat Panel -->
+        <div class="panel" id="chatPanel">
+          <div class="panel-header">
+            <span class="panel-title">Chat</span>
+            <button class="close-btn" onclick="closePanel()">×</button>
+          </div>
+          <div class="notify-row">
+            <span class="notify-label">Notify me about</span>
+            <select class="notify-select">
+              <option>All new messages</option>
+              <option>Nothing</option>
+            </select>
+          </div>
+          <div class="notice-board-card">
+            <span>⭐ Notice Board</span>
+            <div class="notice-board-actions">
+              <button>+</button>
+              <button>›</button>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <!-- Pre-seeded messages -->
+            <div class="msg-row">
+              <div class="msg-meta">
+                <span class="dot online"></span>
+                <span class="msg-name">You</span>
+                <span class="msg-tag">To: Everyone</span>
+                <span class="msg-time">1:12 PM</span>
+              </div>
+              <div class="msg-body">Hi</div>
+            </div>
+            <div class="msg-row">
+              <div class="msg-meta">
+                <span class="dot online"></span>
+                <span class="msg-name">You</span>
+                <span class="msg-tag">To: Everyone</span>
+                <span class="msg-time">1:12 PM</span>
+              </div>
+              <div class="msg-body">What is the difference between entropy and enthalpy?</div>
+            </div>
+            <div class="msg-row">
+              <div class="msg-meta">
+                <span class="dot online"></span>
+                <span class="msg-name">Ish (Student)</span>
+                <span class="msg-tag">To: Every...</span>
+                <span class="msg-time">2:37 PM</span>
+              </div>
+              <div class="msg-body">Hi</div>
+            </div>
+            <!-- Answered LIVE card (pre-seeded) -->
+            <div class="answered-live-card">
+              <div class="answered-live-header">
+                <span class="answered-name">Priya Sharma</span>
+              </div>
+              <div class="answered-question">What's an exothermic reaction?</div>
+              <div class="answered-badge">✅ Answered LIVE in Class</div>
+              <div class="answered-meta">2:35 PM &nbsp;·&nbsp; 👍 0</div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <div class="react-row">
+              <span class="react-label">Yes 👍</span>
+              <span class="react-label">No 👎</span>
+              <a href="#" class="enable-chat-link">Enable/Disable Chat</a>
+            </div>
+            <div class="to-row">
+              <span class="to-label">To:</span>
+              <select class="to-select" id="toSelect">
+                <option value="everyone">Everyone</option>
+                <option value="ish">ish</option>
+                <option value="ish-student">Ish (Student)</option>
+              </select>
+              <span class="to-caret"></span>
+            </div>
+            <div class="input-row">
+              <input type="text" class="chat-input" id="chatInput" placeholder="Type a message...">
+              <button class="emoji-btn">🙂</button>
+              <button class="send-btn" id="chatSendBtn">➤</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Questions Panel -->
+        <div class="panel hidden" id="questionsPanel">
+          <div class="panel-header">
+            <span class="panel-title">Questions</span>
+            <button class="close-btn" onclick="closePanel()">×</button>
+          </div>
+          <!-- Instructor banner (hidden for students) -->
+          <div class="instructor-banner hidden" id="instructorBanner">
+            <strong>Note:</strong> Please click on <strong>"Answer Now"</strong> button before you start explaining the doubt to perfectly map it with the classroom video.
+          </div>
+          <!-- Confusion Pulse (instructor only) -->
+          <div class="confusion-pulse hidden" id="confusionPulse">
+            <div class="pulse-title">📊 Students asked AI about in the last 10 min:</div>
+            <ul class="pulse-list">
+              <li>Entropy vs enthalpy <span class="pulse-count">7</span></li>
+              <li>Gibbs free energy <span class="pulse-count">3</span></li>
+              <li>Hess's law <span class="pulse-count">2</span></li>
+            </ul>
+          </div>
+          <!-- Sub-tabs -->
+          <div class="q-tabs">
+            <button class="q-tab active" id="liveTab" onclick="switchQTab('live')">Live (<span id="liveCount">1</span>)</button>
+            <button class="q-tab" id="answeredTab" onclick="switchQTab('answered')">Answered (<span id="answeredCount">1</span>)</button>
+          </div>
+          <div class="q-filter-row">
+            <label class="toggle-label">
+              <input type="checkbox" id="myQToggle"> My questions
+            </label>
+            <select class="sort-select">
+              <option>Most upvoted</option>
+              <option>Most recent</option>
+            </select>
+          </div>
+
+          <!-- Live Questions List -->
+          <div class="q-list" id="liveList">
+            <!-- Pre-seeded live question -->
+            <div class="q-card" data-id="q1" data-author="Ish (Student)" data-text="Hi, what is the difference between entropy and enthalpy?" data-mine="false">
+              <div class="q-card-header">
+                <span class="q-author">Ish (Student)</span>
+                <div class="q-card-actions">
+                  <button class="q-icon-btn withdraw-btn hidden" title="Withdraw" onclick="withdrawQuestion('q1')">🗑</button>
+                  <button class="q-icon-btn" title="More">⋮</button>
+                </div>
+              </div>
+              <div class="q-text">Hi, what is the difference between entropy and enthalpy?</div>
+              <!-- AI attempt -->
+              <div class="ai-attempt" id="ai-attempt-q1">
+                <button class="ai-attempt-toggle" onclick="toggleAiAttempt('q1')">
+                  <span class="ai-attempt-arrow">▶</span> ✨ AI tried to answer
+                </button>
+                <div class="ai-attempt-body hidden" id="ai-body-q1">
+                  <div class="ai-text">Entropy (S) measures disorder in a system; enthalpy (H) measures total heat content at constant pressure. In a reaction, ΔH tells you heat exchanged; ΔS tells you how disorder changed.</div>
+                  <div class="source-chips">
+                    <span class="source-chip">📄 Lecture 4 · 12:34</span>
+                    <span class="source-chip">📄 Slide 7</span>
+                  </div>
+                  <div class="ai-helpful-row student-only">
+                    <span class="ai-helpful-label">Did this help?</span>
+                    <button class="helpful-btn yes" onclick="resolveOwnQuestion('q1', true)">Yes, close</button>
+                    <button class="helpful-btn no" onclick="resolveOwnQuestion('q1', false)">No, ask instructor</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Instructor actions -->
+              <div class="instructor-actions instructor-only hidden">
+                <button class="btn-secondary" onclick="alreadyAnswered('q1')">Already Answered</button>
+                <button class="btn-primary" onclick="answerNow('q1')">Answer Now</button>
+              </div>
+              <div class="q-meta">
+                <span class="q-time">Asked a few seconds ago</span>
+                <span class="q-upvote">👍 <span id="upvote-q1">0</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Answered Questions List -->
+          <div class="q-list hidden" id="answeredList">
+            <div class="q-card answered-card" data-id="qa1">
+              <div class="q-card-header">
+                <span class="q-author">Priya Sharma</span>
+              </div>
+              <div class="q-text">What's an exothermic reaction?</div>
+              <div class="answered-badge small">✅ Answered LIVE in Class</div>
+              <div class="q-meta">
+                <span class="q-time">2:35 PM</span>
+                <span class="q-upvote">👍 2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty state -->
+          <div class="empty-state hidden" id="liveEmpty">There are no active questions</div>
+
+          <!-- Question input (student only) -->
+          <div class="q-input-area student-only" id="qInputArea">
+            <input type="text" class="q-input" id="qInput" placeholder="Hi, what is the difference between entropy and enthalpy?">
+            <button class="btn-primary ask-btn" id="askBtn" onclick="submitQuestion()">Ask</button>
+          </div>
+        </div>
+
+        <!-- Ask AI Panel -->
+        <div class="panel hidden" id="askAiPanel">
+          <div class="panel-header">
+            <div class="ask-ai-title-wrap">
+              <span class="panel-title">✨ Ask AI</span>
+              <span class="ai-private-note">Only visible to you</span>
+            </div>
+            <button class="close-btn" onclick="closePanel()">×</button>
+          </div>
+          <div class="canned-prompts">
+            <div class="canned-label">Quick prompts</div>
+            <button class="canned-btn" onclick="fireCannedPrompt('Catch me up with topics covered till now')">Catch me up with topics covered till now</button>
+            <button class="canned-btn" onclick="fireCannedPrompt('Explain that more simply')">Explain that more simply</button>
+            <button class="canned-btn" onclick="fireCannedPrompt('Give me an example')">Give me an example</button>
+            <button class="canned-btn" onclick="fireCannedPrompt('Quiz me on the last 10 minutes')">Quiz me on the last 10 minutes</button>
+          </div>
+          <div class="ai-conversation" id="aiConversation">
+            <div class="ai-empty-state" id="aiEmptyState">
+              <div class="ai-empty-icon">✨</div>
+              <div class="ai-empty-text">Ask me anything about the lecture.<br>Your conversation is private.</div>
+            </div>
+          </div>
+          <div class="ai-input-area">
+            <input type="text" class="q-input" id="aiInput" placeholder="Ask a doubt…">
+            <button class="btn-primary ask-btn" onclick="sendAiMessage()">Ask</button>
+          </div>
+        </div>
+
+        <!-- Stub panel for other tabs -->
+        <div class="panel hidden" id="stubPanel">
+          <div class="panel-header">
+            <span class="panel-title" id="stubTitle">Coming soon</span>
+            <button class="close-btn" onclick="closePanel()">×</button>
+          </div>
+          <div class="stub-body">This panel is not part of the prototype.</div>
+        </div>
+      </div>
+
+      <!-- Right Rail -->
+      <div class="right-rail">
+        <div class="rail-items">
+          <button class="rail-btn" data-panel="stub" data-stub="People" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3zm-8 0c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5c0-2.3-4.7-3.5-7-3.5zm8 0c-.3 0-.6 0-.9.1 1.1.8 1.9 1.8 1.9 3.4V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/></svg>
+            <span>People</span>
+          </button>
+          <button class="rail-btn active" data-panel="chat" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            <span>Chat</span>
+          </button>
+          <button class="rail-btn" data-panel="questions" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 17h-2v-2h2v2zm2.1-7.8l-.9.9c-.7.7-1.2 1.3-1.2 2.9h-2v-.5c0-1.2.5-2.3 1.2-3.1l1.2-1.2c.4-.4.6-.9.6-1.4 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.2 1.8-4 4-4s4 1.8 4 4c0 .9-.4 1.7-.9 2.4z"/></svg>
+            <span>Questions</span>
+            <span class="rail-badge hidden" id="qBadge">1</span>
+          </button>
+          <button class="rail-btn student-rail-btn" data-panel="ask-ai" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+            <span>Ask AI</span>
+          </button>
+          <button class="rail-btn" data-panel="stub" data-stub="Bookmarks & Notes" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+            <span>Bookmarks & Notes</span>
+          </button>
+          <button class="rail-btn" data-panel="stub" data-stub="Notice Board" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4v10c0 2.2 1.8 4 4 4h6c2.2 0 4-1.8 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+            <span>Notice Board</span>
+          </button>
+          <button class="rail-btn" data-panel="stub" data-stub="Help" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 17h-2v-2h2v2zm2.1-7.8l-.9.9c-.7.7-1.2 1.3-1.2 2.9h-2v-.5c0-1.2.5-2.3 1.2-3.1l1.2-1.2c.4-.4.6-.9.6-1.4 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.2 1.8-4 4-4s4 1.8 4 4c0 .9-.4 1.7-.9 2.4z"/></svg>
+            <span>Help</span>
+          </button>
+          <button class="rail-btn" data-panel="stub" data-stub="Fix Issues" onclick="openRailPanel(this)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.1 12.9c.1-.3.1-.6.1-.9s0-.6-.1-.9l2-1.6c.2-.2.2-.4.1-.6l-1.9-3.3c-.1-.2-.4-.3-.6-.2l-2.4 1c-.5-.4-1-.7-1.6-.9l-.4-2.5c0-.2-.2-.4-.5-.4h-3.8c-.2 0-.4.2-.5.4l-.4 2.5c-.6.2-1.1.5-1.6.9l-2.4-1c-.2-.1-.5 0-.6.2L2.4 9.9c-.1.2-.1.5.1.6l2 1.6c-.1.3-.1.6-.1.9s0 .6.1.9l-2 1.6c-.2.2-.2.4-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-1c.5.4 1 .7 1.6.9l.4 2.5c0 .2.3.4.5.4h3.8c.2 0 .4-.2.5-.4l.4-2.5c.6-.2 1.1-.5 1.6-.9l2.4 1c.2.1.5 0 .6-.2l1.9-3.3c.1-.2.1-.5-.1-.6l-2-1.6zM12 15.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>
+            <span>Fix Issues</span>
+          </button>
+        </div>
+        <div class="doubt-session-label">Doubt Session<br>Ongoing</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
